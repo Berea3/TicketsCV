@@ -1,0 +1,8 @@
+<div class="page">
+    <div class="form">
+        <span id="title">Log in</span>
+        <bear-input-text (textChanged)="setEmail($event)">Email</bear-input-text>
+        <bear-input-text (textChanged)="setPassword($event)">Password</bear-input-text>
+        <bear-btn (click)="onSubmit()">Login</bear-btn>
+    </div>
+</div>

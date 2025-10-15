@@ -1,0 +1,42 @@
+<app-header></app-header>
+
+<div class="menu">
+    <bear-btn type="info" routerLink="/add-event">Add event</bear-btn>
+    <bear-btn type="info" routerLink="/add-layout">Add layout</bear-btn>
+    <bear-btn type="accent" routerLink="/organizer/check-ticket">Check ticket</bear-btn>
+</div>
+
+<div class="container">
+    <div class="tabs">
+        <button
+            class="tab-button"
+            [class.active]="selectedTab === 'events'"
+            (click)="selectedTab = 'events'"
+        >
+            Events
+        </button>
+        <button
+            class="tab-button"
+            [class.active]="selectedTab === 'places'"
+            (click)="selectedTab = 'places'"
+        >
+            Places
+        </button>
+    </div>
+
+    <div class="content">
+        <div *ngIf="selectedTab === 'events'">
+            <div class="item" *ngFor="let event of events">
+                <h3>{{ event.name }}</h3>
+                <p>{{ event.date }}</p>
+            </div>
+        </div>
+
+        <div *ngIf="selectedTab === 'places'">
+            <div class="item" *ngFor="let place of places">
+                <h3>{{ place.name }}</h3>
+                <p (click)="deletePlace(place)">delete</p>
+            </div>
+        </div>
+    </div>
+</div>

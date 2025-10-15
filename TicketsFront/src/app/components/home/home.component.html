@@ -1,0 +1,18 @@
+<app-header></app-header>
+
+<div class="menu">
+    <bear-input-checkbox (checkedStateChange)="setExpired($event)" type="info">Show only available</bear-input-checkbox>
+    <bear-input-text (textChanged)="changeSearch($event)">Search</bear-input-text>
+</div>
+
+<div class="events">
+    @for (event of filteredEvents; track event)
+    {
+        <div class="event" (click)="goToBuyTicket(event)">
+            <img [src]="link.url+'/files/findById/'+event.posterId" alt="" class="poster">
+            <span>{{event.date}}</span>
+            <span>{{ event.name }}</span>
+            <span>bilete</span>
+        </div>
+    }
+</div>

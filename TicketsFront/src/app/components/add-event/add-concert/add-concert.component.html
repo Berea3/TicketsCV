@@ -1,0 +1,17 @@
+<app-header></app-header>
+
+<form class="form">
+    <bear-input-text (textChanged)="setName($event)">Name</bear-input-text>
+
+    <bear-input-text (textChanged)="setDescription($event)">Description</bear-input-text>
+
+    <input type="file" (change)="onFileAdded($event)" accept="image/*" multiple class="fileInput">
+    <input type="date" [(ngModel)]="concert.date" name="date">
+    <input type="time" [(ngModel)]="concert.time" name="time">
+    number of seats
+    <input type="number" [(ngModel)]="concert.seats" name="seats">
+    price
+    <input type="number" [(ngModel)]="concert.price" name="price">
+
+    <button (click)="onSubmit()">Add event</button>
+</form>

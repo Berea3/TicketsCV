@@ -1,0 +1,22 @@
+<header class="navbar">
+    <a [routerLink]="['']" class="homeLink"><h1>Tickets</h1></a>
+
+    <div class="mainMenu">
+        <bear-btn [routerLink]="['/theaters']">{{'Theaters'|translate}}</bear-btn>
+        <bear-btn [routerLink]="['/concerts']">{{ 'Concerts'|translate }}</bear-btn>
+        <bear-btn [routerLink]="['/movies']">{{ 'Movies'|translate }}</bear-btn>
+        <bear-btn [routerLink]="['/sports']">{{ 'Sport_events'|translate }}</bear-btn>
+    </div>
+
+    <div class="accountMenu">
+<!--        <bear-btn  *ngIf="isOrganizer()" routerLink="add-event">Add event</bear-btn>-->
+<!--        <bear-btn  *ngIf="isOrganizer()" routerLink="add-stage">Add stage</bear-btn>-->
+        <bear-btn *ngIf="isLoggedIn() && isOrganizer()" routerLink="/manage">Manage</bear-btn>
+        <bear-btn *ngIf="isLoggedIn() && isSpectator()" routerLink="/profile">{{ 'Profile'|translate }}</bear-btn>
+<!--        <bear-btn *ngIf="isLoggedIn() && !isOrganizer()" routerLink="/profile">Profile</bear-btn>-->
+        <bear-btn *ngIf="isLoggedIn()" (click)="logOut()">{{ 'Log_out'|translate }}</bear-btn>
+        <bear-btn *ngIf="!isLoggedIn()" [routerLink]="['/sign-up']">Sign up</bear-btn>
+        <bear-btn [routerLink]="['/login']" *ngIf="!isLoggedIn()">Login</bear-btn>
+    </div>
+
+</header>

@@ -1,0 +1,15 @@
+<div class="page">
+    <div class="form">
+        <span id="title">Sign up</span>
+<!--        <input [(ngModel)]="user.email" name="username">-->
+        <bear-input-text (textChanged)="setEmail($event)">Email</bear-input-text>
+        <bear-input-text (textChanged)="setPassword($event)">Password</bear-input-text>
+<!--        <input [(ngModel)]="user.password" name="password">-->
+        <select [(ngModel)]="user.roles" id="cars" name="role">
+            <option value="spectator">Spectator</option>
+            <option value="organizer">Organizer</option>
+        </select>
+        <bear-btn (click)="onSignUp()">Sign up</bear-btn>
+        <h3>After creating an account, user will get a confirmation in the email.</h3>
+    </div>
+</div>

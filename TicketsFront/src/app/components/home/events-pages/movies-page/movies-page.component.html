@@ -1,0 +1,13 @@
+<app-header></app-header>
+
+<div class="events">
+    @for (movie of movies; track movie)
+    {
+        <div (click)="openMovie(movie.id)" class="event">
+            <img *ngIf="movie.poster && movie.poster.id" [src]="link.url+'/files/findById/'+movie.poster.id" alt="" class="poster">
+            <span>{{movie.date}}</span>
+            <span>{{ movie.name }}</span>
+            <span (click)="goToBuyTicket(movie.id)">bilete</span>
+        </div>
+    }
+</div>
